@@ -21,7 +21,7 @@ def index():
 		# for img_list in img_tag:
 		li[index].update({'image': img_list['src']})
 		index = index + 1
-	return json.dumps(li,sort_keys=False)
+	return flask.jsonify(**li)
 if __name__ == '__main__':
     app.run()
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
