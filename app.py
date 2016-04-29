@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 app = Flask(__name__)
 
 @app.route('/',methods=['GET'])
-def chennai():
+def index():
 	r = requests.get('https://www.spicinemas.in/chennai/now-showing')
 	soup = BeautifulSoup(r.content,"lxml")
 	title_tag = soup.findAll("dt",{"class":"movie__name"})
