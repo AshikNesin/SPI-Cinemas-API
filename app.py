@@ -5,7 +5,7 @@ import re
 from bs4 import BeautifulSoup
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/',methods=['GET'])
 def chennai():
 	r = requests.get('https://www.spicinemas.in/chennai/now-showing')
 	soup = BeautifulSoup(r.content,"lxml")
