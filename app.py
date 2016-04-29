@@ -5,8 +5,6 @@ import re
 import sys
 import logging
 from bs4 import BeautifulSoup
-from flask.ext.responses import json_response, xml_response, auto_response
-
 app = Flask(__name__)
 
 @app.route('/',methods=['GET'])
@@ -23,7 +21,7 @@ def index():
 		# for img_list in img_tag:
 		li[index].update({'image': img_list['src']})
 		index = index + 1
-	return json_response(li,status_code=201)
+	return json.dumps(li,sort_keys=False)
 if __name__ == '__main__':
     app.run()
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
