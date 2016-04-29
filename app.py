@@ -2,6 +2,8 @@ from flask import Flask
 import requests
 import json
 import re
+import sys
+import logging
 from bs4 import BeautifulSoup
 app = Flask(__name__)
 
@@ -22,3 +24,5 @@ def index():
 	return json.dumps(li,sort_keys=False)
 if __name__ == '__main__':
     app.run()
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
